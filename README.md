@@ -1,46 +1,108 @@
-# Getting Started with Create React App
+# Assessment: Candidate Screening – ReactJS Architectural Design
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Description
 
-## Available Scripts
+Please prepare an analysis (either written or code) of how you would architect a multi-page questionnaire application using React JS. Assume the questionnaire could consist of yes/no radio buttons, textboxes, and dropdowns. The question-and-answer information would come from an API and would need to be rendered. The application will be used by many different clients and each one will want their logo at the top of the questionnaire and their company colors and fonts used throughout.
+Here is an example of what it might look like:
 
-In the project directory, you can run:
+![Proto](./description/proto.png)
 
-### `npm start`
+Additional considerations include:
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+- Security considerations, encryption on sensitive data
+- How to handle CSS and logo styling that can differ per client
+- How to maintain previously answered questions when traversing to previous page
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+Please be prepared to discuss your thought process and considerations with the development team during the interview.
 
-### `npm test`
+Sample payload from API:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+```
+{
+	"questions": [
+		{
+			"Id": 1,
+			"ControlType": "Label",
+			"Text": "Lets begin the Survey!",
+			"PageNumber": 1,
+			"answers": []
+		},
+		{
+			"Id": 2,
+			"ControlType": "TextBox",
+			"Text": "FirstName",
+			"PageNumber": 1,
+			"answers": []
+		},
+		{
+			"Id": 3,
+			"ControlType": "TextBox",
+			"Text": "LastName",
+			"PageNumber": 1,
+			"answers": []
+		},
+		{
+			"Id": 4,
+			"ControlType": "DatePicker",
+			"Text": "Date Of Birth",
+			"PageNumber": 1,
+			"answers": []
+		},
+		{
+			"Id": 5,
+			"ControlType": "TextBox",
+			"Text": "Email",
+			"PageNumber": 1,
+			"answers": []
+		},
+		{
+			"Id": 6,
+			"ControlType": "Label",
+			"Text": "Do you have any pets? ",
+			"PageNumber": 2,
+			"answers": [
+				{
+					"id": 1,
+					"text": "Yes",
+					"answerType": "RadioButton"
+				},
+				{
+					"id": 2,
+					"text": "No",
+					"answerType": "RadioButton"
+				}
+			]
+		},
+		{
+			"Id": 7,
+			"ControlType": "Label",
+			"Text": "Do you listen to music while you work?",
+			"PageNumber": 2,
+			"answers": [
+				{
+					"id": 1,
+					"text": "Yes",
+					"answerType": "RadioButton"
+				},
+				{
+					"id": 2,
+					"text": "No",
+					"answerType": "RadioButton"
+				}
+			]
+		}
+	],
+	"SupportedLanguages": [
+		{
+			"languageCode": "en-US",
+			"languageDescription": "English Language",
+			"defaultLanguage": true
+		},
+		{
+			"languageCode": "zh-CN",
+			"languageDescription": "Chinese (Mandarin)",
+			"defaultLanguage": false
+		}
+	]
+}
+```
