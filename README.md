@@ -1,4 +1,4 @@
-# Assessment: Candidate Screening – ReactJS Architectural Design
+# Assessment: ReactJS Architectural Design
 
 ## Description
 
