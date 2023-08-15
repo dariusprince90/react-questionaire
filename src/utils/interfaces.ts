@@ -1,5 +1,3 @@
-import { Dayjs } from "dayjs";
-
 export interface InputProps {
   type: "text" | "radio-group" | "select" | "checkbox" | "date-picker";
   name: string;
